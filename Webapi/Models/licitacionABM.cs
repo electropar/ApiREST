@@ -22,6 +22,7 @@ namespace Webapi.Models
             cn = new SqlConnection(cadena);
 
         }
+
         public licitacionABM()
         {
             conectar();
@@ -35,6 +36,7 @@ namespace Webapi.Models
             cmb = new SqlCommandBuilder(da);
             da.Fill(ds, tabla);
         }
+
         //eliminar
         public bool eliminar(string tabla, string condicion)
         {
