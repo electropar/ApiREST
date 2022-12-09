@@ -20,13 +20,16 @@ namespace Webapi.Controllers
          }
 
         [HttpPost]
-        public Models.licitacionprueba Post ([FromBody] Models.licitacionprueba model) {
-            Models.licitacionABM liciabm = new Models.licitacionABM();
-            liciabm.insertar("  declare @codigo integer " +
+        public Models.licitacionModel Post ([FromBody] Models.licitacionModel model) {
+            Models.ABM liciABM = new Models.ABM();
+
+            /*crea un registro en el LOG*/
+            liciABM.insertar("  declare @codigo integer " +
                              "  set @codigo = isnull((select MAX(docentry) from ELECTROPARAD.dbo.LOG_MAILING),0) + 1 " +
                              "  insert into ELECTROPARAD.dbo.LOG_MAILING (docentry,fecha,proceso,nota) values (@codigo, getdate(),'ZOHO REST LIC','" +  model.idLicitacion + "') ");
 
-            liciabm.insertar("  if (select count(code) from[@LICITACION_ZOHO] where U_idLicitacion = '" + model.idLicitacion +"') > 0 " +
+            /*crea O modifica un registro*/
+            liciABM.insertar("  if (select count(code) from[@LICITACION_ZOHO] where U_idLicitacion = '" + model.idLicitacion +"') > 0 " +
                              "  begin " +
                              "      update[@LICITACION_ZOHO] set U_tipoLicitacion = '" + model.tipoLicitacion + "', " +
                              "      U_nombreLicitacion = upper(cast('" + model.nombreLicitacion + "'as varchar(max))), " +

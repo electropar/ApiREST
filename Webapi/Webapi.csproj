@@ -201,9 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\licitacionABM.cs" />
-    <Compile Include="Models\licitacionprueba.cs" />
-    <Compile Include="Models\oportunidaddescargar.cs" />
+    <Compile Include="Models\ABM.cs" />
+    <Compile Include="Models\licitacionModel.cs" />
+    <Compile Include="Models\oportunidadModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

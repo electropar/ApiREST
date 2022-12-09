@@ -5,9 +5,10 @@ using System.Web;
 
 namespace Webapi.Models
 {
-    public class licitacionprueba
+    public class licitacionModel
     {
         public string idLicitacion { get; set; }
+
         public string nombreLicitacion { get; set; }
         public string divisionLicitacion { get; set; }
         public string entidadLicitacion { get; set; }

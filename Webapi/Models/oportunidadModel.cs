@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Webapi.Models
 {
-    public class oportunidaddescargar
+    public class oportunidadModel
     {
        
         public string idOportunidad { get; set; }

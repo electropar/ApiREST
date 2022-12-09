@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Webapi.Models
 {
-    public class licitacionABM
+    public class ABM
     {
         private string cadena = "data source=NEMESIS;Database=ELECTROPAR;integrated security = false; persist security info= false; user id = 'sa'; Password = 'nem%2087z'";
         public SqlConnection cn;
@@ -23,7 +23,7 @@ namespace Webapi.Models
 
         }
 
-        public licitacionABM()
+        public ABM()
         {
             conectar();
         }
