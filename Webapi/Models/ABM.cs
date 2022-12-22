@@ -73,14 +73,11 @@ namespace Webapi.Models
 
         }
 
-        public DataTable consultar2(string tabla)
+        public DataTable consultar2(string sql)
         {
-            string sql = "select * from " + tabla;
-            da = new SqlDataAdapter(sql, cn);
-            DataSet dts = new DataSet();
-            da.Fill(dts, tabla);
+            da = new SqlDataAdapter(sql, cn);            
             DataTable dt = new DataTable();
-            dt = dts.Tables[tabla];
+            da.Fill(dt);
             return dt;
         }
 
@@ -97,6 +94,40 @@ namespace Webapi.Models
             else {
                 return false;
             }
+        }
+
+        public string DataTableToJSONWithStringBuilder(DataTable table)
+        {
+            var JSONString = new StringBuilder();
+            if (table.Rows.Count > 0)
+            {
+                JSONString.Append("[");
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    JSONString.Append("{");
+                    for (int j = 0; j < table.Columns.Count; j++)
+                    {
+                        if (j < table.Columns.Count - 1)
+                        {
+                            JSONString.Append("\"" + table.Columns[j].ColumnName.ToString() + "\":" + "\"" + table.Rows[i][j].ToString() + "\",");
+                        }
+                        else if (j == table.Columns.Count - 1)
+                        {
+                            JSONString.Append("\"" + table.Columns[j].ColumnName.ToString() + "\":" + "\"" + table.Rows[i][j].ToString() + "\"");
+                        }
+                    }
+                    if (i == table.Rows.Count - 1)
+                    {
+                        JSONString.Append("}");
+                    }
+                    else
+                    {
+                        JSONString.Append("},");
+                    }
+                }
+                JSONString.Append("]");
+            }
+            return JSONString.ToString();
         }
 
     }

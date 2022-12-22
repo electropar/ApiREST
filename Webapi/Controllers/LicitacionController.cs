@@ -1,24 +1,31 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using AccesoDatos;
+﻿using System.Web.Http;
 
 namespace Webapi.Controllers
 {
     public class LicitacionController : ApiController
     {
-        private ELECTROPAREntities dbcontext = new ELECTROPAREntities();
+        //private ELECTROPAREntities dbcontext = new ELECTROPAREntities();
        
-        [HttpGet]
-        public IEnumerable<C_LICITACION_ZOHO> Get()
-        {
-            using (ELECTROPAREntities licitacion  = new ELECTROPAREntities())
-            {
+        //[HttpGet]
+        //public IEnumerable<C_LICITACION_ZOHO> Get()
+        //{
+        //    using (ELECTROPAREntities licitacion  = new ELECTROPAREntities())
+        //    {
               
-                 return licitacion.C_LICITACION_ZOHO.ToList();
-            }
-         }
+        //         return licitacion.C_LICITACION_ZOHO.ToList();
+        //    }
+        // }
 
+        //[HttpGet]
+        //public IEnumerable<C_LICITACION_ZOHO> Get(string licitacion_ID)
+        //{
+        //    using (ELECTROPAREntities licitacion = new ELECTROPAREntities())
+        //    {
+
+        //        return licitacion.C_LICITACION_ZOHO.ToList();
+        //    }
+        //}
+                
         [HttpPost]
         public Models.licitacionModel Post ([FromBody] Models.licitacionModel model) {
             Models.ABM liciABM = new Models.ABM();
