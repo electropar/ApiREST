@@ -38,13 +38,14 @@ namespace Webapi.Controllers
                              "      fechacierre = '"+ model.FechaCierre + "', " +
                              "      descripcion = upper('"+ model.descripcion + "'), " +
                              "      motivoperdio = '" + model.motivoPerdio + "', " +
-                             "      actualizado = getdate() " +
+                             "      actualizado = getdate(), " +
+                             "      migrado = 0 " + 
                              "      where idoportunidad = '" + model.idOportunidad + "' " +
                              "  end " +
                              "  else " +
                              "  begin " +
                              "      declare @codigo integer set @codigo = isnull((select max(docentry) from ELECTROPARAD.dbo.[OPN_ZOHO] ),0) + 1 " +
-                             "      insert into ELECTROPARAD.dbo.[OPN_ZOHO] (docentry, idoportunidad, nombreoportunidad, nombrecliente, codigosapcliente, idpropietario, propietario, fase, importeopn, monedaopn, fechacierre, descripcion, motivoperdio, fecharegistro) " +
+                             "      insert into ELECTROPARAD.dbo.[OPN_ZOHO] (docentry, idoportunidad, nombreoportunidad, nombrecliente, codigosapcliente, idpropietario, propietario, fase, importeopn, monedaopn, fechacierre, descripcion, motivoperdio, fecharegistro, migrado) " +
                              "      values(@codigo, '" + model.idOportunidad + "', " +
                              "      upper('" + model.nombreOportunidad + "'), " +
                              "      upper('" + model.nombreCliente + "' ) , " +
@@ -57,7 +58,7 @@ namespace Webapi.Controllers
                              "      '"+ model.FechaCierre +"', " +
                              "      upper('"+ model.descripcion +"'), " +
                              "      '"+ model.motivoPerdio +"', " +
-                             "      getdate()) " +
+                             "      getdate(), 0) " +
                              "  end");
 
             return model;

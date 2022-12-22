@@ -17,10 +17,9 @@ namespace Webapi.Models
         public string Fase { get; set; }
         public string ImporteOPN { get; set; }
         public string MonedaOPN { get; set; }
-        public DateTime FechaCierre { get; set; }
+        public string FechaCierre { get; set; } 
         public string descripcion { get; set; }
         public string motivoPerdio { get; set; }
-        
 
-}
+    }
 }
