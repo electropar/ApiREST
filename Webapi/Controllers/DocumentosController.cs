@@ -35,8 +35,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from OQUT t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' " +
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
                                         " " +
                                         "union all " +
                                         " " +
@@ -49,8 +49,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from ORDR t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' " +
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
                                         " " +
                                         "union all " +
                                         " " +
@@ -63,8 +63,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from ODLN t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' " +
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
                                         " " +
                                         "union all " +
                                         " " +
@@ -77,8 +77,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from ORDN t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' " +
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
                                         " " +
                                         "union all " +
                                         " " +
@@ -91,8 +91,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from OINV t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' " +
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
                                         " " +
                                         "union all " +
                                         " " +
@@ -105,8 +105,8 @@ namespace Webapi.Controllers
                                         "t0.DocCur as Moneda, " +
                                         "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
                                         "from ORIN t0 " +
-                                        "inner join [@LICITACION_ZOHO] t1 on t1.Code = t0.U_licitacion_ZOHO " +
-                                        "where t1.U_idLicitacion = '" + model.id + "' ");
+                                        "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
+                                        "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' ");
             }
             else if (model.tipo.Equals("OP"))
             {
