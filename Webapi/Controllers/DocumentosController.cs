@@ -108,7 +108,7 @@ namespace Webapi.Controllers
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' ");
             }
-            else if (model.tipo.Equals("OP") && model.id.Equals("") == false)
+            else if (model.tipo.Equals("OP") && !model.id.Equals("-"))
             {
                 dt = consulta.consultar2(
                                         "select 'Oferta' as Documento, " +
@@ -193,7 +193,7 @@ namespace Webapi.Controllers
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' ");
             }
-            else if (model.tipo.Equals("OP") && model.id.Equals("") == false)
+            else if (model.tipo.Equals("OP") && model.id.Equals("-"))
             {
                 dt = consulta.consultar2("select * from ELECTROPARZO.dbo.Z_documentos_vinculados");
             }
