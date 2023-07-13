@@ -33,7 +33,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from OQUT t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
@@ -47,7 +48,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORDR t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
@@ -61,7 +63,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ODLN t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
@@ -75,7 +78,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORDN t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
@@ -89,7 +93,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from OINV t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' " +
@@ -103,7 +108,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORIN t0 with(nolock) " +
                                         "where ISNULL(t0.U_licitacion_ZOHO, '') <> '' " +
                                         "and (select l.U_idLicitacion from [@LICITACION_ZOHO] l where l.Code = t0.U_licitacion_ZOHO) = '" + model.id + "' ");
@@ -118,7 +124,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from OQUT t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' " +
@@ -132,7 +139,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORDR t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' " +
@@ -146,7 +154,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ODLN t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' " +
@@ -160,7 +169,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORDN t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' " +
@@ -174,7 +184,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from OINV t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' " +
@@ -188,7 +199,8 @@ namespace Webapi.Controllers
                                         "t0.CardCode as Cliente, " +
                                         "t0.CardName as Nombre, " +
                                         "t0.DocCur as Moneda, " +
-                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto " +
+                                        "CASE when t0.DocCur = 'GS' then t0.DocTotal else t0.DocTotalFC end  as Monto, " +
+                                        "t0.DocTotal as MontoGS" +
                                         "from ORIN t0 with(nolock) " +
                                         "inner join OOPR t1 on t1.OpprId = t0.U_opprId " +
                                         "where t1.U_zoho_ID = '" + model.id + "' ");
