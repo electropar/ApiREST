@@ -20,6 +20,7 @@ namespace Webapi.Models
         public string FechaCierre { get; set; } 
         public string descripcion { get; set; }
         public string motivoPerdio { get; set; }
+        public string motivoCancelo { get; set; }
 
     }
 }

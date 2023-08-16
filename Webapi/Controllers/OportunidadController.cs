@@ -30,6 +30,7 @@ namespace Webapi.Controllers
                              "      fechacierre = '"+ model.FechaCierre + "', " +
                              "      descripcion = upper('"+ model.descripcion + "'), " +
                              "      motivoperdio = '" + model.motivoPerdio + "', " +
+                             "      motivoCancelo = '" + model.motivoCancelo + "', " +
                              "      actualizado = getdate(), " +
                              "      migrado = 0 " + 
                              "      where idoportunidad = '" + model.idOportunidad + "' " +
@@ -37,7 +38,7 @@ namespace Webapi.Controllers
                              "  else " +
                              "  begin " +
                              "      declare @codigo integer set @codigo = isnull((select max(docentry) from ELECTROPARAD.dbo.[OPN_ZOHO] ),0) + 1 " +
-                             "      insert into ELECTROPARAD.dbo.[OPN_ZOHO] (docentry, idoportunidad, nombreoportunidad, nombrecliente, codigosapcliente, idpropietario, propietario, fase, importeopn, monedaopn, fechacierre, descripcion, motivoperdio, fecharegistro, migrado) " +
+                             "      insert into ELECTROPARAD.dbo.[OPN_ZOHO] (docentry, idoportunidad, nombreoportunidad, nombrecliente, codigosapcliente, idpropietario, propietario, fase, importeopn, monedaopn, fechacierre, descripcion, motivoperdio, motivoCancelo, fecharegistro, migrado) " +
                              "      values(@codigo, '" + model.idOportunidad + "', " +
                              "      upper('" + model.nombreOportunidad + "'), " +
                              "      upper('" + model.nombreCliente + "' ) , " +
@@ -50,6 +51,7 @@ namespace Webapi.Controllers
                              "      '"+ model.FechaCierre +"', " +
                              "      upper('"+ model.descripcion +"'), " +
                              "      '"+ model.motivoPerdio +"', " +
+                             "      '" + model.motivoCancelo + "', " +
                              "      getdate(), 0) " +
                              "  end");
 
