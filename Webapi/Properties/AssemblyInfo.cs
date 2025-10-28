@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Webapi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("EREST")]
+[assembly: AssemblyDescription("ELECTROPAR REST API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Webapi")]
+[assembly: AssemblyCompany("ELECTROPAR S.A.")]
+[assembly: AssemblyProduct("EREST")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("EREST")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
